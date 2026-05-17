@@ -1,0 +1,161 @@
+{
+  "abi": [
+    {
+      "type": "constructor",
+      "inputs": [{ "name": "_platformFeeBps", "type": "uint96" }],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "platformFeeBps",
+      "stateMutability": "view",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "uint96" }]
+    },
+    {
+      "type": "function",
+      "name": "accumulatedFees",
+      "stateMutability": "view",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "uint256" }]
+    },
+    {
+      "type": "function",
+      "name": "nextListingId",
+      "stateMutability": "view",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "uint256" }]
+    },
+    {
+      "type": "function",
+      "name": "owner",
+      "stateMutability": "view",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "address" }]
+    },
+    {
+      "type": "function",
+      "name": "getListing",
+      "stateMutability": "view",
+      "inputs": [{ "name": "listingId", "type": "uint256" }],
+      "outputs": [
+        {
+          "name": "",
+          "type": "tuple",
+          "components": [
+            { "name": "seller", "type": "address" },
+            { "name": "nftContract", "type": "address" },
+            { "name": "tokenId", "type": "uint256" },
+            { "name": "price", "type": "uint256" },
+            { "name": "active", "type": "bool" },
+            { "name": "flagged", "type": "bool" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "listItem",
+      "stateMutability": "nonpayable",
+      "inputs": [
+        { "name": "nftContract", "type": "address" },
+        { "name": "tokenId", "type": "uint256" },
+        { "name": "price", "type": "uint256" }
+      ],
+      "outputs": [{ "name": "", "type": "uint256" }]
+    },
+    {
+      "type": "function",
+      "name": "cancelListing",
+      "stateMutability": "nonpayable",
+      "inputs": [{ "name": "listingId", "type": "uint256" }],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "buyItem",
+      "stateMutability": "payable",
+      "inputs": [{ "name": "listingId", "type": "uint256" }],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "setPlatformFee",
+      "stateMutability": "nonpayable",
+      "inputs": [{ "name": "newFeeBps", "type": "uint96" }],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "flagListing",
+      "stateMutability": "nonpayable",
+      "inputs": [
+        { "name": "listingId", "type": "uint256" },
+        { "name": "flag", "type": "bool" }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "withdrawFees",
+      "stateMutability": "nonpayable",
+      "inputs": [{ "name": "to", "type": "address" }],
+      "outputs": []
+    },
+    {
+      "type": "event",
+      "name": "Listed",
+      "inputs": [
+        { "indexed": true, "name": "listingId", "type": "uint256" },
+        { "indexed": true, "name": "seller", "type": "address" },
+        { "indexed": true, "name": "nftContract", "type": "address" },
+        { "indexed": false, "name": "tokenId", "type": "uint256" },
+        { "indexed": false, "name": "price", "type": "uint256" }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "Sold",
+      "inputs": [
+        { "indexed": true, "name": "listingId", "type": "uint256" },
+        { "indexed": true, "name": "buyer", "type": "address" },
+        { "indexed": true, "name": "seller", "type": "address" },
+        { "indexed": false, "name": "price", "type": "uint256" },
+        { "indexed": false, "name": "royaltyPaid", "type": "uint256" },
+        { "indexed": false, "name": "platformFee", "type": "uint256" }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "Cancelled",
+      "inputs": [{ "indexed": true, "name": "listingId", "type": "uint256" }],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "Flagged",
+      "inputs": [
+        { "indexed": true, "name": "listingId", "type": "uint256" },
+        { "indexed": false, "name": "flagged", "type": "bool" }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "PlatformFeeUpdated",
+      "inputs": [{ "indexed": false, "name": "newFeeBps", "type": "uint96" }],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "FeesWithdrawn",
+      "inputs": [
+        { "indexed": true, "name": "to", "type": "address" },
+        { "indexed": false, "name": "amount", "type": "uint256" }
+      ],
+      "anonymous": false
+    }
+  ]
+}
